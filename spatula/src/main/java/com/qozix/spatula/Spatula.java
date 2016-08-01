@@ -123,7 +123,6 @@ public class Spatula {
       }
     }
     for (final Method method : instance.getClass().getDeclaredMethods()) {
-      Log.d("S", method.getName() + " has " + method.getDeclaredAnnotations().length + " annotations");
       if (method.isAnnotationPresent(OnClick.class)) {
         Annotation annotation = method.getAnnotation(OnClick.class);
         OnClick onClick = (OnClick) annotation;

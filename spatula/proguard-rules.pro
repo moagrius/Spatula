@@ -15,3 +15,16 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keepattributes *Annotation*
+-keep public class com.qozix.spatula.*
+-keepclassmembers class com.qozix.spatula.BindView {
+  int value();
+}
+-keepclassmembers class com.qozix.spatula.OnClick {
+  int value();
+}
+-keepclassmembers class com.qozix.spatula.Spatula {
+  public static void bind(***);
+  public static void bind(***, ***);
+}

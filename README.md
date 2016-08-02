@@ -3,11 +3,10 @@ Spatula is a very simple View and Click binder using Java annotations.
 
 > ButterKnives are infinitely sharper than Spatulas...
 
-# Why?
-We all love Square's stuff, but ButterKnife started taking itself too seriously when it demanded 4 lines and a plugin in my module's gradle.
+We all love Square's stuff, but ButterKnife started taking itself too seriously when it demanded 4 lines and a plugin in my module's gradle.  Thus, Spatula - a super simple runtime annotation processor for binding Views, OnClickListeners, and click methods.  Spatula is intended to be super simple, super lightweight, super easy to use or modify, and super easy to read.  It's not trying to solve the most important problems, and it's not the most performant version of this functionality.
 
-# How?
-Super simple...  There are 2 binding annoations, both take a resource ID:
+## Usage
+There are 2 binding annoations, both take a resource ID:
 ```
 @BindView(R.id.whatever)
 @OnClick(R.id.whater)
@@ -18,6 +17,8 @@ To process, use any of the static `bind` methods.
 ```
 Spatula.bind(someActivityOrViewGroup);
 ```
+
+## Example
 It might look like this in an application:
 ```
 public class MyActivity extends Activity {
@@ -50,17 +51,20 @@ public class MyActivity extends Activity {
 }
 ```
 
-Of course, you need to add it to your gradle:
+##Installation
+Add it to your gradle:
 ```
 compile 'com.qozix:spatula:1.0'
 ```
 
-# But...
+If you're minifying, add these rules to `proguard-rules.pro`
+```
+-keep class com.qozix.spatula.** { *; }
+-keep interface com.qozix.spatula.** { *; }
+-dontwarn com.qozix.spatula.**
+```
+
+## Caveats
 - Yep, this this uses _runtime_ annotation processing, which is going to be technically much slower than compile time using the APT plugin.  That said, you're still probably looking at an average of 0 to 1 milliseconds for a medium-sized instance with several bindings.
 - Yep, all the restrictions of ButterKnife apply (and more).
 - We get around restricted access members by temporarily setting them accessible, updating, then setting them back (yep, ick!)
-
-# So...?
-This is intended to be super simple, super lightweight, super easy to use or modify, and super easy to read.  It's not trying to solve the most important problems, it's not the most performant version of this functionality.  
-
-**It's simple.**

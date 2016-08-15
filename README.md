@@ -62,6 +62,9 @@ If you're minifying, add these rules to `proguard-rules.pro`
 -keep class com.qozix.spatula.** { *; }
 -keep interface com.qozix.spatula.** { *; }
 -dontwarn com.qozix.spatula.**
+-keepclassmembers class * {
+    @com.qozix.spatula.OnClick *;
+}
 ```
 
 ## Caveats

@@ -15,3 +15,9 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keep class com.qozix.spatula.** { *; }
+-keep interface com.qozix.spatula.** { *; }
+-dontwarn com.qozix.spatula.**
+-keepclassmembers class * {
+    @com.qozix.spatula.OnClick *;
+}

@@ -64,6 +64,9 @@ public class Spatula {
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T findAndCast(int id) {
+      if(mViewGroup.getId() == id) {
+        return (T) mViewGroup;
+      }
       return (T) mViewGroup.findViewById(id);
     }
   }

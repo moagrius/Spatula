@@ -4,7 +4,6 @@ package com.qozix.spatula;
 import android.app.Activity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -51,9 +50,9 @@ public class Spatula {
    * Convenience class that uses ViewGroup.findViewById and casts the returns.
    */
   private static class FindInView implements Finder {
-    private ViewGroup mViewGroup;
-    public FindInView(ViewGroup viewGroup){
-      mViewGroup = viewGroup;
+    private View mView;
+    public FindInView(View view){
+      mView = view;
     }
     /**
      * Helper method to pre-cast Views to the type of the declared instance.
@@ -64,10 +63,10 @@ public class Spatula {
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T findAndCast(int id) {
-      if(mViewGroup.getId() == id) {
-        return (T) mViewGroup;
+      if(mView.getId() == id) {
+        return (T) mView;
       }
-      return (T) mViewGroup.findViewById(id);
+      return (T) mView.findViewById(id);
     }
   }
 
@@ -163,8 +162,8 @@ public class Spatula {
    *
    * @inheritDoc
    */
-  public static void bind(Object instance, ViewGroup viewGroup){
-    bind(instance, new FindInView(viewGroup));
+  public static void bind(Object instance, View view){
+    bind(instance, new FindInView(view));
   }
 
   /**
@@ -181,8 +180,8 @@ public class Spatula {
    *
    * @inheritDoc
    */
-  public static void bind(ViewGroup viewGroup){
-    bind(viewGroup, viewGroup);
+  public static void bind(View view){
+    bind(view, view);
   }
 
 }

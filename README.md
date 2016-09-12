@@ -54,7 +54,7 @@ public class MyActivity extends Activity {
 ##Installation
 Add it to your gradle:
 ```
-compile 'com.qozix:spatula:1.0'
+compile 'com.qozix:spatula:1.2'
 ```
 
 If you're minifying, add these rules to `proguard-rules.pro`

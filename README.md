@@ -71,5 +71,5 @@ If you're minifying, add these rules to `proguard-rules.pro`
 
 ## Caveats
 - Yep, this this uses _runtime_ annotation processing, which is going to be technically much slower than compile time using the APT plugin.  That said, you're still probably looking at an average of 0 to 1 milliseconds for a medium-sized instance with several bindings.
-- Yep, ~all~ most of the restrictions of ButterKnife apply (and probably more).
+- Yep, ~~all~~ most of the restrictions of ButterKnife apply (and probably more).
 - We get around restricted access members by temporarily setting them accessible, updating, then setting them back (yep, ick!)
